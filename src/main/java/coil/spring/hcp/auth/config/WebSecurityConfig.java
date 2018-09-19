@@ -66,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new WebXmlMappableAttributesRetriever();
 	}
 
-	//Not sure if this is really needed - leave it alone for now 
+	//JEE Container authentication provider
 	@Bean
 	public PreAuthenticatedAuthenticationProvider preAuthenticatedAuthenticationProvider() {
 		PreAuthenticatedAuthenticationProvider provider = new PreAuthenticatedAuthenticationProvider();
@@ -74,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return provider;
 	}
 
-	//Not sure if this is really needed - leave it alone for now
+	//Needed for the JEE Container authentication provider
 	@Bean
 	public PreAuthenticatedGrantedAuthoritiesUserDetailsService preAuthenticatedUserDetailsService() {
 		return new PreAuthenticatedGrantedAuthoritiesUserDetailsService();
@@ -87,7 +87,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return simpleAttributes2GrantedAuthoritiesMapper;
     }
     
-	//Not sure if this is really needed - leave it alone for now
+	//Needed by the Filter
     @Bean
     public AuthenticationManager authenticationManager()
     {
